@@ -2,11 +2,16 @@
 
 <head>
     <title>New Message</title>
+    <link rel="stylesheet" href="styles/newMessage.css">
 </head>
 
 <body>
-    <p>New Message</p>
-    <%- include('newMessageForm') %>
+    <div class="container">
+        <p>New Message</p>
+        <div class="form-container">
+            <%- include('newMessageForm') %>
+        </div>
+    </div>
 </body>
 
 </html>

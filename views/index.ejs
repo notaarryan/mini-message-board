@@ -4,44 +4,47 @@
     <title>
         <%= title %>
     </title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
-    <div>
-        <% if (username) { %>
-            <div>
-                <p>Username: <%= username %>
-                </p>
-            </div>
-            <% } %>
-    </div>
-    <% if (!username) { %>
-        <div>
-            <%- include('setUserNameForm') %>
+    <div class="container">
+        <div class="username-display">
+            <% if (username) { %>
+                <div>
+                    <p>Username: <%= username %>
+                    </p>
+                </div>
+                <% } %>
         </div>
-        <% } else { %>
-            <div>
-                <%- include('updateUserNameForm.ejs') %>
+        <% if (!username) { %>
+            <div class="form-container">
+                <%- include('setUserNameForm') %>
             </div>
-            <% } %>
-                <div class="message-card">
-                    <% for( let i=0; i < messages.length; i++ ) { %>
-                        <div>
-                            <p>
-                                <%= messages[i].user %>
-                            </p>
-                            <p>
-                                <%= messages[i].text %>
-                            </p>
-                            <p>
-                                <%= messages[i].added %>
-                            </p>
-                        </div>
-                        <% } %>
+            <% } else { %>
+                <div class="form-container">
+                    <%- include('updateUserNameForm.ejs') %>
                 </div>
-                <div class="new-message-card">
-                    <a href="/new"><Button>New Message</Button></a>
-                </div>
+                <% } %>
+                    <div class="message-container">
+                        <% for( let i=0; i < messages.length; i++ ) { %>
+                            <div class="messages">
+                                <p>
+                                    <%= messages[i].user %>
+                                </p>
+                                <p>
+                                    <%= messages[i].text %>
+                                </p>
+                                <p>
+                                    <%= messages[i].added %>
+                                </p>
+                            </div>
+                            <% } %>
+                    </div>
+                    <div class="new-message-button-container">
+                        <a href="/new"><Button>New Message</Button></a>
+                    </div>
+    </div>
 </body>
 
 </html>

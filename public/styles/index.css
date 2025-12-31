@@ -1,0 +1,219 @@
+:root {
+    font-size: 16px;
+    --body-background: rgb(241, 247, 245);
+    --container-div-background: white;
+    --messages-background: rgb(241, 247, 245);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-background);
+
+}
+
+body>div.container {
+    max-height: 90%;
+    min-width: 650px;
+    background-color: var(--container-div-background);
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
+    padding: min(20%, 20px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: min(30px, 20%);
+}
+
+body>div.container>div.username-display {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background-color: white;
+    border-radius: 999px;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #374151;
+}
+
+body>div.container>div.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: var(--messages-background);
+    border-radius: 14px;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+body>div.container>div.form-container>form {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+body>div.container>div.form-container>form>div>label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+
+body>div.container>div.form-container>form>div>input {
+    flex: 1;
+    padding: 10px 14px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.15);
+    font-size: 0.95rem;
+}
+
+body>div.container>div.form-container>form>button {
+    padding: 10px 18px;
+    background-color: lightslategray;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+body>div.container>div.form-container>form>button:active {
+    transform: scale(0.97);
+}
+
+body>div.container>div.form-container>form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body>div.container>div.form-container>form>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+body>div.container>div.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    overflow-y: scroll;
+    padding: 30px;
+    background-color: var(--messages-background);
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+body>div.container>div.message-container>div.messages:nth-of-type(-n + 2) {
+    align-self: flex-start;
+    min-width: 50%;
+    max-width: 75%;
+    flex: 1;
+}
+
+body>div.container>div.message-container>div.messages:nth-of-type(n + 3) {
+    min-width: 50%;
+    max-width: 75%;
+    align-self: flex-end;
+    flex: 1;
+}
+
+body>div.container>div.message-container>div.messages {
+    background-color: white;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+body>div.container>div.new-message-button-container>a>button {
+    padding: 10px 18px;
+    background-color: lightslategray;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+body>div.container>div.new-message-button-container>a>button:active {
+    transform: scale(0.97);
+}
