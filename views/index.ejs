@@ -1,11 +1,47 @@
 <html>
 
 <head>
-    <title>Index</title>
+    <title>
+        <%= title %>
+    </title>
 </head>
 
 <body>
-    <p>Hi</p>
+    <div>
+        <% if (username) { %>
+            <div>
+                <p>Username: <%= username %>
+                </p>
+            </div>
+            <% } %>
+    </div>
+    <% if (!username) { %>
+        <div>
+            <%- include('setUserNameForm') %>
+        </div>
+        <% } else { %>
+            <div>
+                <%- include('updateUserNameForm.ejs') %>
+            </div>
+            <% } %>
+                <div class="message-card">
+                    <% for( let i=0; i < messages.length; i++ ) { %>
+                        <div>
+                            <p>
+                                <%= messages[i].user %>
+                            </p>
+                            <p>
+                                <%= messages[i].text %>
+                            </p>
+                            <p>
+                                <%= messages[i].added %>
+                            </p>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="new-message-card">
+                    <a href="/new"><Button>New Message</Button></a>
+                </div>
 </body>
 
 </html>
