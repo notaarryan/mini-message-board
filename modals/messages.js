@@ -12,12 +12,12 @@ function formatDate(date = new Date()) {
 const messages = [
   {
     text: "Hi there!",
-    user: "Amanda",
+    user: "Aryan Parmar - Creator of this website :)",
     added: formatDate(),
   },
   {
-    text: "Hello World!",
-    user: "Charles",
+    text: "Hope you like the website",
+    user: "Aryan Parmar - Creator of this website :)",
     added: formatDate(),
   },
 ];
