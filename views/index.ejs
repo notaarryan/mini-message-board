@@ -27,19 +27,20 @@
                 </div>
                 <% } %>
                     <div class="message-container">
-                        <% for( let i=0; i < messages.length; i++ ) { %>
+                        <% messages.forEach(message=> { %>
                             <div class="messages">
                                 <p>
-                                    <%= messages[i].user %>
+                                    <%= message.username %>
                                 </p>
                                 <p>
-                                    <%= messages[i].text %>
+                                    <%= message.message %>
                                 </p>
                                 <p>
-                                    <%= messages[i].added %>
+                                    <%= new Date(message.added).toLocaleString("en-CA", { dateStyle: "medium" ,
+                                        timeStyle: "short" }) %>
                                 </p>
                             </div>
-                            <% } %>
+                            <% }) %>
                     </div>
                     <div class="new-message-button-container">
                         <a href="/new"><Button>New Message</Button></a>
