@@ -1,26 +1,27 @@
-const { messages, formatDate } = require("../modals/messages");
+const db = require("../db/queries");
 
 const indexController = {
-  renderIndex: (req, res) => {
+  renderIndex: async (req, res) => {
     res.render("index", {
       title: "Mini Messageboard",
-      messages: messages,
+      messages: await db.getAllMessages(),
       username: req.session.username,
     });
   },
   renderNewMessagePage: (req, res) => {
     res.render("newMessage");
   },
+
   setUserName: (req, res) => {
     req.session.username = req.body.userName;
     res.redirect("/");
   },
-  handleNewMessage: (req, res) => {
-    messages.push({
-      user: req.session.username ? req.session.username : "Guest",
-      text: req.body["new-message-input"],
-      added: formatDate(new Date()),
-    });
+
+  handleNewMessage: async (req, res) => {
+    await db.addNewMessage(
+      req.session.username ? req.session.username : "Guest",
+      req.body["new-message-input"]
+    );
     res.redirect("/");
   },
 };
